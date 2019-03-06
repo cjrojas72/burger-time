@@ -1,0 +1,31 @@
+<div class="row">
+  <div class="col-4">
+    <form>
+      {{> section-title title="Add A Burger"}}
+      <div class="form-group">
+        <input class="form-control" type="text" id="burgers-input" placeholder="Add a burger to try here"/>
+        <button class="mt-1 btn btn-block btn-success" id="submit-btn">Add Burger</button>
+      </div>
+    </form>
+  </div>
+  <div class="col-4">
+    {{> section-title title="Burgers that need to be tried"}}
+    <ul class="list-group">
+    {{#each burgerList}}
+      {{#unless eaten}}
+        {{> burgers/burger status="Not eaten"}}
+      {{/unless}}
+    {{/each}}
+    </ul>
+  </div>
+  <div class="col-4">
+    {{> section-title title="Eaten burgers"}}
+    <ul class="list-group">
+      {{#each burgerList}}
+        {{#if eaten}}
+          {{> burgers/burger status="eaten"}}
+        {{/if}}
+      {{/each}}
+    </ul>
+  </div>
+</div>
